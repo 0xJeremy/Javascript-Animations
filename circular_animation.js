@@ -33,7 +33,7 @@ function particle(x, y, radius, color) {
 
 	this.radians = Math.random() * Math.PI * 2;
 	this.velocity = 0.03;
-	this.distanceFromCenter = num_in_range(75, 250);
+	this.distanceFromCenter = num_in_range(canvas.width/8, canvas.width/4);
 
 	// Movement Animation
 	this.update = () => {
