@@ -6,6 +6,7 @@ canvas.height = innerHeight;
 
 // Modify to change color of particles
 const particle_colors = ['#fc4a1a', '#ff6a00', '#ee0979'];
+const particle_velocity = [0.01, 0.02, 0.03, 0.04, 0.05];
 
 // Resize Canvas
 addEventListener('resize', () => {
@@ -21,6 +22,9 @@ function num_in_range(min, max) {
 function randColor(colors) {
 	return colors[Math.floor(Math.random() * colors.length)];
 }
+function randVelocity(velocities) {
+	return velocities[Math.floor(Math.random() * velocities.length)];
+}
 
 // Particle Object
 function particle(x, y, radius, color) {
@@ -32,8 +36,8 @@ function particle(x, y, radius, color) {
 	this.color = color;
 
 	this.radians = Math.random() * Math.PI * 2;
-	this.velocity = 0.03;
-	this.distanceFromCenter = num_in_range(canvas.width/8, canvas.width/4);
+	this.velocity = randVelocity(particle_velocity);
+	this.distanceFromCenter = num_in_range(canvas.width/8, canvas.width/3);
 
 	// Movement Animation
 	this.update = () => {
